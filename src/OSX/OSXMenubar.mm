@@ -9,6 +9,7 @@
 @implementation MacOSMenuBarOC
   + (void)init {
     // Create the application menu
+    [NSApp setMainMenu:nil];
     NSMenu* m_menuBar = [[NSMenu alloc] initWithTitle:@""];
     [NSApp setMainMenu:m_menuBar];
   }
