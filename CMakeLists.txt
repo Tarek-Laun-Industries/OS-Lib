@@ -22,7 +22,7 @@ else()
 target_sources(OSLib PRIVATE ${sources})
 endif()
 
-target_precompile_headers(OSLib PUBLIC src/pch.hpp)
+target_precompile_headers(OSLib PUBLIC src/ospch.hpp)
 
 if (NOT WIN32)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
