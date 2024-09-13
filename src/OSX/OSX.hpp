@@ -3,9 +3,10 @@
 #include <pch.hpp>
 #include <OSLib.hpp>
 
-namespace OS {
+namespace OSLib {
   class OSX : public OS {
   public:
+    void ThrowError(String _error) override;
     void OpenURL(String _url) override;
   };
 }

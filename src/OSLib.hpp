@@ -1,10 +1,13 @@
 #pragma once
 #include <pch.hpp>
 
-namespace OS {
+namespace OSLib {
   class OS {
   public:
+    virtual void ThrowError(String _error) {}
     virtual void OpenURL(String _url) {}
+
+
   };
 
   class OSLib {
@@ -17,6 +20,7 @@ namespace OS {
     static void Init();
 #endif
 
+    static void ThrowError(String _error);
     static void OpenURL(String _url);
   
   private:

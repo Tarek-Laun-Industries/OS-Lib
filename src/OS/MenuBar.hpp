@@ -1,7 +1,7 @@
 #pragma once
 #include <pch.hpp>
 
-namespace OS {
+namespace OSLib {
   class MenuBar {
   public:
     void Init();

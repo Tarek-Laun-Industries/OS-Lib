@@ -9,7 +9,7 @@
 #include <OSX/OSX.hpp>
 #endif
 
-namespace OS {
+namespace OSLib {
 
   OS* OSLib::os = nullptr;
 
@@ -27,7 +27,11 @@ namespace OS {
   }
 #endif
 
+  void OSLib::ThrowError(String _error) {
+    os->ThrowError(_error);
+  }
+
   void OSLib::OpenURL(String _url) {
-    // Open the URL
+    os->OpenURL(_url);
   }
 }
