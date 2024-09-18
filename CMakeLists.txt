@@ -13,7 +13,7 @@ endif()
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "src/*.cpp")
 
 add_library(OSLib STATIC)
-target_include_directories(OSLib PUBLIC src)
+target_include_directories(OSLib PUBLIC include)
 
 if (APPLE)
 file(GLOB_RECURSE appleSources CONFIGURE_DEPENDS "src/*.mm")
@@ -22,7 +22,7 @@ else()
 target_sources(OSLib PRIVATE ${sources})
 endif()
 
-target_precompile_headers(OSLib PUBLIC src/ospch.hpp)
+target_precompile_headers(OSLib PUBLIC include/ospch.hpp)
 
 if (NOT WIN32)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
