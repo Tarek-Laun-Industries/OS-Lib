@@ -23,9 +23,11 @@ namespace OSLib {
     void WINMenuBar::AddSubMenu(String _path, String _subMenuName) {
         std::vector<std::string> subMenues = Utils::SplitString(_path, '/');
         HMENU* _menu = &menuBar;
-        if (!subMenues.back().empty()) {
-            if (menus[subMenues.back()] != nullptr) {
-                _menu = menus[subMenues.back()];
+        if (!subMenues.empty()) {
+            if (!subMenues.back().empty()) {
+                if (menus[subMenues.back()] != nullptr) {
+                    _menu = menus[subMenues.back()];
+                }
             }
         }
 
@@ -38,9 +40,11 @@ namespace OSLib {
     void WINMenuBar::AddSepperator(String _path) {
         std::vector<std::string> subMenues = Utils::SplitString(_path, '/');
         HMENU* _menu = &menuBar;
-        if (!subMenues.back().empty()) {
-            if (menus[subMenues.back()] != nullptr) {
-                _menu = menus[subMenues.back()];
+        if (!subMenues.empty()) {
+            if (!subMenues.back().empty()) {
+                if (menus[subMenues.back()] != nullptr) {
+                    _menu = menus[subMenues.back()];
+                }
             }
         }
 
@@ -51,9 +55,11 @@ namespace OSLib {
     void WINMenuBar::AddItem(String _path, String _itemName, String _key, std::function<void()> _callback) {
         std::vector<std::string> subMenues = Utils::SplitString(_path, '/');
         HMENU* _menu = &menuBar;
-        if (!subMenues.back().empty()) {
-            if (menus[subMenues.back()] != nullptr) {
-                _menu = menus[subMenues.back()];
+        if (!subMenues.empty()) {
+            if (!subMenues.back().empty()) {
+                if (menus[subMenues.back()] != nullptr) {
+                    _menu = menus[subMenues.back()];
+                }
             }
         }
 
