@@ -21,9 +21,9 @@
 
 | Feature       | Windows | macOS | Linux |
 |---------------|---------|-------|-------|
-| Menu Bars     | ⚠️       | ✅    | ⚠️     |
-| Pop-ups       | ⚠️       | ⚠️     | ⚠️     |
-| URL Opening   | ✅       | ✅     | ⚠️     |
+| Menu Bars     | ⚠️      | ✅    | ⚠️   |
+| Pop-ups       | ⚠️      | ⚠️    | ⚠️   |
+| URL Opening   | ✅      | ✅    | ⚠️   |
 
 ⚠️ = Not implemented yet!
 
