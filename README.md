@@ -23,7 +23,7 @@
 |---------------|---------|-------|-------|
 | Menu Bars     | ⚠️       | ✅    | ⚠️     |
 | Pop-ups       | ⚠️       | ⚠️     | ⚠️     |
-| URL Opening   | ⚠️       | ⚠️     | ⚠️     |
+| URL Opening   | ✅       | ✅     | ⚠️     |
 
 ⚠️ = Not implemented yet!
 

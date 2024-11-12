@@ -3,8 +3,8 @@
 #include <string>
 typedef std::string String;
 
-#ifdef _WIN32_
-#include <Windows.h>
+#ifdef _WIN32
+#include <windows.h>
 #elif __linux__
 
 #elif __APPLE__

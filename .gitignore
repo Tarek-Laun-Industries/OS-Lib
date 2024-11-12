@@ -16,3 +16,4 @@ CMakeUserPresets.json
 /[Rr]elease/
 /.vs/
 /.vscode/
+/out/build/x64-Debug

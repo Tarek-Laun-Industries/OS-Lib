@@ -14,6 +14,10 @@ namespace OSLib {
     virtual void SetItemDisabled(String _path, String _itemName, bool _disabled) {}
     virtual void SetItemChecked(String _path, String _itemName, bool _checked) {}
 
-    static  MenuBar* CreateMenuBar();
+#ifdef _WIN32
+    static MenuBar* CreateMenuBar(HWND _window);
+#elif __APPLE__
+    static MenuBar* CreateMenuBar();
+#endif
   };
 }

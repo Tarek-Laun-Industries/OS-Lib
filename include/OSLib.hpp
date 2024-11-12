@@ -12,7 +12,7 @@ namespace OSLib {
 
   class OSLib {
   public:
-#ifdef _WIN32_
+#ifdef _WIN32
     static void Init(HWND _hwnd);
 #elif __LINUX__
     static void Init();

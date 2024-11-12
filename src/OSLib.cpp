@@ -1,8 +1,8 @@
 #include <ospch.hpp>
 #include <OSLib.hpp>
 
-#ifdef __WIN32__
-
+#ifdef _WIN32
+#include "WIN/WIN.hpp"
 #elif __LINUX__
 
 #elif __APPLE__
@@ -13,9 +13,10 @@ namespace OSLib {
 
   OS* OSLib::os = nullptr;
 
-#ifdef __WIN32__
+#ifdef _WIN32
   void OSLib::Init(HWND _hwnd) {
     // Windows specific code
+    os = new WIN();
   }
 #elif __LINUX__
   void OSLib::Init() {
