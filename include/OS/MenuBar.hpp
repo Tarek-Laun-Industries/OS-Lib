@@ -15,6 +15,7 @@ namespace OSLib {
     virtual void SetItemChecked(String _path, String _itemName, bool _checked) {}
 
 #ifdef _WIN32
+    virtual void RunCallbacks(uint32_t _function) {}
     static MenuBar* CreateMenuBar(HWND _window);
 #elif __APPLE__
     static MenuBar* CreateMenuBar();

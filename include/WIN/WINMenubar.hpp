@@ -18,7 +18,7 @@ namespace OSLib {
     void SetItemDisabled(String _path, String _itemName, bool _disabled) override;
     void SetItemChecked(String _path, String _itemName, bool _checked) override;
 
-    void RunCallbacks(uint32_t);
+    void RunCallbacks(uint32_t) override;
 
   private:
       std::vector<std::function<void()>> callBacks;
