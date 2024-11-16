@@ -74,11 +74,11 @@ namespace OSLib {
 
 
         if (_checked) {
-            CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_UNCHECKED);
+            CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_CHECKED);
         }
         else {
 
-            CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_CHECKED);
+            CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_UNCHECKED);
         }
     }
 
