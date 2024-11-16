@@ -52,6 +52,7 @@ namespace OSLib {
 
         callBacks.push_back(_callback);
         AppendMenu(*_menu, MF_STRING, callBacks.size() - 1, _itemName.c_str());
+        ids[_itemPath] = new uint32_t();
         *ids[_itemPath] = callBacks.size() - 1;
         SetMenu(hwnd, menuBar);
     }
