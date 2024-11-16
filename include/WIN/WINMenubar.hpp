@@ -25,6 +25,7 @@ namespace OSLib {
       HMENU menuBar;
       HWND hwnd;
       std::map<std::string, HMENU*> menus;
+      std::map<std::string, uint32_t*> ids;
   };
 }
 #endif

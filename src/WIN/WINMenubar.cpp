@@ -21,14 +21,9 @@ namespace OSLib {
     }
 
     void WINMenuBar::AddSubMenu(String _path, String _subMenuName) {
-        std::vector<std::string> subMenues = Utils::SplitString(_path, '/');
         HMENU* _menu = &menuBar;
-        if (!subMenues.empty()) {
-            if (!subMenues.back().empty()) {
-                if (menus[subMenues.back()] != nullptr) {
-                    _menu = menus[subMenues.back()];
-                }
-            }
+        if (menus[_path] != nullptr) {
+            _menu = menus[_path];
         }
 
         menus[_subMenuName] = new HMENU();
@@ -38,14 +33,9 @@ namespace OSLib {
     }
 
     void WINMenuBar::AddSepperator(String _path) {
-        std::vector<std::string> subMenues = Utils::SplitString(_path, '/');
         HMENU* _menu = &menuBar;
-        if (!subMenues.empty()) {
-            if (!subMenues.back().empty()) {
-                if (menus[subMenues.back()] != nullptr) {
-                    _menu = menus[subMenues.back()];
-                }
-            }
+        if (menus[_path] != nullptr) {
+            _menu = menus[_path];
         }
 
         AppendMenu(*_menu, MF_SEPARATOR, 0, NULL);
@@ -53,18 +43,16 @@ namespace OSLib {
     }
 
     void WINMenuBar::AddItem(String _path, String _itemName, String _key, std::function<void()> _callback) {
-        std::vector<std::string> subMenues = Utils::SplitString(_path, '/');
         HMENU* _menu = &menuBar;
-        if (!subMenues.empty()) {
-            if (!subMenues.back().empty()) {
-                if (menus[subMenues.back()] != nullptr) {
-                    _menu = menus[subMenues.back()];
-                }
-            }
+        if (menus[_path] != nullptr) {
+            _menu = menus[_path];
         }
+
+        String _itemPath = _path + "/" + _itemName;
 
         callBacks.push_back(_callback);
         AppendMenu(*_menu, MF_STRING, callBacks.size() - 1, _itemName.c_str());
+        *ids[_itemPath] = callBacks.size() - 1;
         SetMenu(hwnd, menuBar);
     }
 
@@ -73,7 +61,18 @@ namespace OSLib {
     }
 
     void WINMenuBar::SetItemChecked(String _path, String _itemName, bool _checked) {
+        HMENU* _menu = &menuBar;
+        uint32_t id = 0;
+        if (menus[_path] != nullptr) {
+            _menu = menus[_path];
+        }
+        String _itemPath = _path + "/" + _itemName;
+        id = *ids[_itemPath];
 
+
+        if (_checked) {
+            CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_UNCHECKED);
+        }
     }
 
     void WINMenuBar::RunCallbacks(uint32_t id) {
