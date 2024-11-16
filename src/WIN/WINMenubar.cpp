@@ -76,6 +76,10 @@ namespace OSLib {
         if (_checked) {
             CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_UNCHECKED);
         }
+        else {
+
+            CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_CHECKED);
+        }
     }
 
     void WINMenuBar::RunCallbacks(uint32_t id) {
