@@ -60,7 +60,21 @@ namespace OSLib {
     }
 
     void WINMenuBar::SetItemDisabled(String _path, String _itemName, bool _disabled) {
+        HMENU* _menu = &menuBar;
+        uint32_t id = 0;
+        if (menus[_path] != nullptr) {
+            _menu = menus[_path];
+        }
+        String _itemPath = _path + "/" + _itemName;
+        id = *ids[_itemPath];
 
+
+        if (_disabled) {
+            EnableMenuItem(*_menu, id, MF_BYCOMMAND | MF_DISABLED);
+        }
+        else {
+            EnableMenuItem(*_menu, id, MF_BYCOMMAND | MF_ENABLED);
+        }
     }
 
     void WINMenuBar::SetItemChecked(String _path, String _itemName, bool _checked) {
@@ -77,7 +91,6 @@ namespace OSLib {
             CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_CHECKED);
         }
         else {
-
             CheckMenuItem(*_menu, id, MF_BYCOMMAND | MF_UNCHECKED);
         }
     }
