@@ -26,9 +26,11 @@ namespace OSLib {
             _menu = menus[_path];
         }
 
-        menus[_subMenuName] = new HMENU();
-        *menus[_subMenuName] = CreateMenu();
-        AppendMenu(*_menu, MF_POPUP, (UINT_PTR)*menus[_subMenuName], _subMenuName.c_str());
+        String _newName = _path + "/" + _subMenuName;
+
+        menus[_newName] = new HMENU();
+        *menus[_newName] = CreateMenu();
+        AppendMenu(*_menu, MF_POPUP, (UINT_PTR)*menus[_newName], _subMenuName.c_str());
         SetMenu(hwnd, menuBar);
     }
 
