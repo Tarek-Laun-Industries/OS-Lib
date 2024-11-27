@@ -56,6 +56,37 @@
     }
   }
 
+  + (void)setItemChecked:(NSString *)menuName:(bool)checked {
+    NSString *nsMenuName = [NSString stringWithUTF8String:menuName.UTF8String];
+    NSArray *nsMenuNames = [nsMenuName componentsSeparatedByString:@"/"];
+    NSMenu *m_menuBar = [NSApp mainMenu];
+
+    NSMenuItem *menuItem = [m_menuBar itemWithTitle:nsMenuNames[0]];
+
+    for (NSUInteger i = 1; i < [nsMenuNames count]; i++) {
+      NSMenu *menu = [menuItem submenu];
+      NSMenuItem *newMenuItem = [menu itemWithTitle:nsMenuNames[i]];
+
+      if (menuItem) {
+        menuItem = newMenuItem;
+      }else {
+        NSMenuItem *subMenuItem = [[NSMenuItem alloc] initWithTitle:nsMenuNames[i] action:nil keyEquivalent:@""];
+        NSMenu *subMenu = [[NSMenu alloc] initWithTitle:nsMenuNames[i]];
+        [subMenuItem setSubmenu:subMenu];
+        [menu addItem:subMenuItem];
+        menuItem = newMenuItem;
+      }
+    }
+
+    if (menuItem) {
+      if (checked) {
+        menuItem.state = NSControlStateValueOn;
+      }else {
+        menuItem.state = NSControlStateValueOff;
+      }
+    }  
+  }
+
   + (void)addSeperator:(NSString *)menuName {
     NSString *nsMenuName = [NSString stringWithUTF8String:menuName.UTF8String];
     NSArray *nsMenuNames = [nsMenuName componentsSeparatedByString:@"/"];
@@ -174,6 +205,9 @@ namespace OSLib {
     }
 
     void OSXMenuBar::SetItemChecked(String _path, String _itemName, bool _checked) {
+      String path = _path + "/" + _itemName;
+      NSString *nsMenuTitle = [NSString stringWithUTF8String:path.c_str()];
 
+      [MacOSMenuBarOC addSeperator:nsMenuTitle:_checked];
     }
 }
