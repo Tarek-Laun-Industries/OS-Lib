@@ -13,20 +13,20 @@ namespace OSLib {
 		menuBar = CreateMenu();
 	}
 
-    void WINMenuBar::AddMenu(String _menuName) {
+    void WINMenuBar::AddMenu(OSLString _menuName) {
         menus[_menuName] = new HMENU();
         *menus[_menuName] = CreateMenu();
         AppendMenu(menuBar, MF_POPUP, (UINT_PTR)*menus[_menuName], _menuName.c_str());
         SetMenu(hwnd, menuBar);
     }
 
-    void WINMenuBar::AddSubMenu(String _path, String _subMenuName) {
+    void WINMenuBar::AddSubMenu(OSLString _path, OSLString _subMenuName) {
         HMENU* _menu = &menuBar;
         if (menus[_path] != nullptr) {
             _menu = menus[_path];
         }
 
-        String _newName = _path + "/" + _subMenuName;
+        OSLString _newName = _path + "/" + _subMenuName;
 
         menus[_newName] = new HMENU();
         *menus[_newName] = CreateMenu();
@@ -34,7 +34,7 @@ namespace OSLib {
         SetMenu(hwnd, menuBar);
     }
 
-    void WINMenuBar::AddSepperator(String _path) {
+    void WINMenuBar::AddSepperator(OSLString _path) {
         HMENU* _menu = &menuBar;
         if (menus[_path] != nullptr) {
             _menu = menus[_path];
@@ -44,13 +44,13 @@ namespace OSLib {
         SetMenu(hwnd, menuBar);
     }
 
-    void WINMenuBar::AddItem(String _path, String _itemName, String _key, std::function<void()> _callback) {
+    void WINMenuBar::AddItem(OSLString _path, OSLString _itemName, OSLString _key, std::function<void()> _callback) {
         HMENU* _menu = &menuBar;
         if (menus[_path] != nullptr) {
             _menu = menus[_path];
         }
 
-        String _itemPath = _path + "/" + _itemName;
+        OSLString _itemPath = _path + "/" + _itemName;
 
         callBacks.push_back(_callback);
         AppendMenu(*_menu, MF_STRING, callBacks.size() - 1, _itemName.c_str());
@@ -59,13 +59,13 @@ namespace OSLib {
         SetMenu(hwnd, menuBar);
     }
 
-    void WINMenuBar::SetItemDisabled(String _path, String _itemName, bool _disabled) {
+    void WINMenuBar::SetItemDisabled(OSLString _path, OSLString _itemName, bool _disabled) {
         HMENU* _menu = &menuBar;
         uint32_t id = 0;
         if (menus[_path] != nullptr) {
             _menu = menus[_path];
         }
-        String _itemPath = _path + "/" + _itemName;
+        OSLString _itemPath = _path + "/" + _itemName;
         id = *ids[_itemPath];
 
 
@@ -77,7 +77,7 @@ namespace OSLib {
         }
     }
 
-    void WINMenuBar::SetItemChecked(String _path, String _itemName, bool _checked) {
+    void WINMenuBar::SetItemChecked(OSLString _path, OSLString _itemName, bool _checked) {
         HMENU* _menu = &menuBar;
         uint32_t id = 0;
         if (menus[_path] != nullptr) {

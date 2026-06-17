@@ -4,8 +4,8 @@
 namespace OSLib {
   class OS {
   public:
-    virtual void ThrowError(String _error) {}
-    virtual void OpenURL(String _url) {}
+    virtual void ThrowError(OSLString _error) {}
+    virtual void OpenURL(OSLString _url) {}
 
 
   };
@@ -20,8 +20,8 @@ namespace OSLib {
     static void Init();
 #endif
 
-    static void ThrowError(String _error);
-    static void OpenURL(String _url);
+    static void ThrowError(OSLString _error);
+    static void OpenURL(OSLString _url);
   
   private:
     static OS* os;

@@ -171,13 +171,13 @@ namespace OSLib {
       [MacOSMenuBarOC init];
     }
 
-    void OSXMenuBar::AddMenu(String _menuName) {
+    void OSXMenuBar::AddMenu(OSLString _menuName) {
       NSString *nsMenuTitle = [NSString stringWithUTF8String:_menuName.c_str()];
       // Create the menu
       [MacOSMenuBarOC addMenu:nsMenuTitle];
     }
 
-    void OSXMenuBar::AddSubMenu(String _path, String _subMenuName) {
+    void OSXMenuBar::AddSubMenu(OSLString _path, OSLString _subMenuName) {
       NSString *nsMenuTitle = [NSString stringWithUTF8String:_path.c_str()];
       NSString *nsSubMenuTitle = [NSString stringWithUTF8String:_subMenuName.c_str()];
 
@@ -185,13 +185,13 @@ namespace OSLib {
       [MacOSMenuBarOC addSubMenu:nsMenuTitle:nsSubMenuTitle];
     }
 
-    void OSXMenuBar::AddSepperator(String _path) {
+    void OSXMenuBar::AddSepperator(OSLString _path) {
       NSString *nsMenuTitle = [NSString stringWithUTF8String:_path.c_str()];
 
       [MacOSMenuBarOC addSeperator:nsMenuTitle];
     }
 
-    void OSXMenuBar::AddItem(String _path, String _itemName, String _key, std::function<void()> _callback) {
+    void OSXMenuBar::AddItem(OSLString _path, OSLString _itemName, OSLString _key, std::function<void()> _callback) {
       NSString *nsMenuTitle = [NSString stringWithUTF8String:_path.c_str()];
       NSString *nsMenuItemTitle = [NSString stringWithUTF8String:_itemName.c_str()];
       NSString *nsKey = [NSString stringWithUTF8String:_key.c_str()];
@@ -200,12 +200,12 @@ namespace OSLib {
       [MacOSMenuBarOC addMenuItem:nsMenuTitle:nsMenuItemTitle:nsKey:_callback];
     }
 
-    void OSXMenuBar::SetItemDisabled(String _path, String _itemName, bool _disabled) {
+    void OSXMenuBar::SetItemDisabled(OSLString _path, OSLString _itemName, bool _disabled) {
 
     }
 
-    void OSXMenuBar::SetItemChecked(String _path, String _itemName, bool _checked) {
-      String path = _path + "/" + _itemName;
+    void OSXMenuBar::SetItemChecked(OSLString _path, OSLString _itemName, bool _checked) {
+      OSLString path = _path + "/" + _itemName;
       NSString *nsMenuTitle = [NSString stringWithUTF8String:path.c_str()];
 
       [MacOSMenuBarOC addSeperator:nsMenuTitle:_checked];

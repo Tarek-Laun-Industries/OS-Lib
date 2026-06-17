@@ -6,8 +6,8 @@
 namespace OSLib {
   class WIN : public OS {
   public:
-    void ThrowError(String _error) override;
-    void OpenURL(String _url) override;
+    void ThrowError(OSLString _error) override;
+    void OpenURL(OSLString _url) override;
 
     HWND _mainWindow;
   };

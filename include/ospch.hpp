@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-typedef std::string String;
+typedef std::string OSLString;
 
 #ifdef _WIN32
 #include <windows.h>

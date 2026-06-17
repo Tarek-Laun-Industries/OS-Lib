@@ -5,7 +5,7 @@
 
 namespace OSLib {
 
-  void OSX::ThrowError(String _text) {
+  void OSX::ThrowError(OSLString _text) {
     SInt32 nRes = 0;
     CFUserNotificationRef pDlg = NULL;
     const void* keys[] = { kCFUserNotificationAlertHeaderKey, kCFUserNotificationAlertMessageKey };
@@ -19,7 +19,7 @@ namespace OSLib {
     pDlg = CFUserNotificationCreate(kCFAllocatorDefault, 0, kCFUserNotificationStopAlertLevel, &nRes, dict);
   }
 
-  void OSX::OpenURL(String _url) {
+  void OSX::OpenURL(OSLString _url) {
     NSString *nsURL = [NSString stringWithUTF8String:_url.c_str()];
     NSURL *url = [NSURL URLWithString:nsURL];
     [[NSWorkspace sharedWorkspace] openURL:url];

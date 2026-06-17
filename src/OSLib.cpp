@@ -28,11 +28,11 @@ namespace OSLib {
   }
 #endif
 
-  void OSLib::ThrowError(String _error) {
+  void OSLib::ThrowError(OSLString _error) {
     os->ThrowError(_error);
   }
 
-  void OSLib::OpenURL(String _url) {
+  void OSLib::OpenURL(OSLString _url) {
     os->OpenURL(_url);
   }
 }

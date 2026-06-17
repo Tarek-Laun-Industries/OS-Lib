@@ -8,13 +8,13 @@ namespace OSLib {
   public:
     void Init() override;
 
-    void AddMenu(String _menuName) override;
-    void AddSubMenu(String _path, String _subMenuName) override;
-    void AddSepperator(String _path) override;
-    void AddItem(String _path, String _itemName, String _key, std::function<void()> _callback) override;
+    void AddMenu(OSLString _menuName) override;
+    void AddSubMenu(OSLString _path, OSLString _subMenuName) override;
+    void AddSepperator(OSLString _path) override;
+    void AddItem(OSLString _path, OSLString _itemName, OSLString _key, std::function<void()> _callback) override;
 
-    void SetItemDisabled(String _path, String _itemName, bool _disabled) override;
-    void SetItemChecked(String _path, String _itemName, bool _checked) override;
+    void SetItemDisabled(OSLString _path, OSLString _itemName, bool _disabled) override;
+    void SetItemChecked(OSLString _path, OSLString _itemName, bool _checked) override;
   };
 }
 #endif

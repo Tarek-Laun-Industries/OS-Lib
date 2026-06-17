@@ -6,13 +6,13 @@ namespace OSLib {
   public:
     virtual void Init() {}
 
-    virtual void AddMenu(String _menuName) {}
-    virtual void AddSubMenu(String _path, String _subMenuName) {}
-    virtual void AddSepperator(String _path) {}
-    virtual void AddItem(String _path, String _itemName, String _key, std::function<void()> _callback) {}
+    virtual void AddMenu(OSLString _menuName) {}
+    virtual void AddSubMenu(OSLString _path, OSLString _subMenuName) {}
+    virtual void AddSepperator(OSLString _path) {}
+    virtual void AddItem(OSLString _path, OSLString _itemName, OSLString _key, std::function<void()> _callback) {}
 
-    virtual void SetItemDisabled(String _path, String _itemName, bool _disabled) {}
-    virtual void SetItemChecked(String _path, String _itemName, bool _checked) {}
+    virtual void SetItemDisabled(OSLString _path, OSLString _itemName, bool _disabled) {}
+    virtual void SetItemChecked(OSLString _path, OSLString _itemName, bool _checked) {}
 
 #ifdef _WIN32
     virtual void RunCallbacks(uint32_t _function) {}

@@ -4,11 +4,11 @@
 
 namespace OSLib {
 
-  void WIN::ThrowError(String _text) {
+  void WIN::ThrowError(OSLString _text) {
       MessageBox(0, _text.c_str(), "Error", MB_OK | MB_ICONERROR);
   }
 
-  void WIN::OpenURL(String _url) {
+  void WIN::OpenURL(OSLString _url) {
       ShellExecute(0, 0, _url.c_str(), 0, 0, SW_SHOW);
   }
 }
