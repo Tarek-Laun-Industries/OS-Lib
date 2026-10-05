@@ -1,3 +1,5 @@
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/tareklaun)
+
 # OS Lib
 
 **OS Lib** is a cross-platform C++ library developed by **Tarek Laun Industries**. It provides an easy-to-use API for accessing native operating system features such as menu bars, pop-ups, and opening URLs. This library simplifies the integration of native functionality without the complexity of platform-specific implementations.
